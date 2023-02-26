@@ -42,6 +42,7 @@ a {
 .center {
   display: flex;
   justify-content: center;
+  margin-bottom: 10rem;
 }
 
 .btn {
@@ -97,11 +98,11 @@ a {
   transform: translateY(4px);
 }
 
-.btn:after {
+.btn:active:after {
   background: transparent;
 }
 
-.btn:before {
+.btn:hover:before {
   opacity: 1;
 }
 
@@ -132,4 +133,16 @@ a {
 .icon {
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.books {
+  padding: 3rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.books > div {
+  height: 3rem;
 }
