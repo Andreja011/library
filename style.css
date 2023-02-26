@@ -143,6 +143,29 @@ a {
   gap: 2rem;
 }
 
-.books > div {
+.book-form {
+  width: 50%;
+}
+
+.book-form > legend {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.form-grid {
+  font-size: 1.5rem;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-grid > label {
+  margin: auto 0;
+}
+
+.form-grid > input,
+.form-grid > select {
+  border-radius: 10px;
   height: 3rem;
 }
