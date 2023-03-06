@@ -63,18 +63,20 @@ function createBook(title, autor, pages, status) {
   divBook.appendChild(deleteButton);
   deleteButton.setAttribute('name', 'trash');
   deleteButton.setAttribute('class', 'icons book-trash');
-  return divBook;
+
   // deleteButton.addEventListener('click', function () {
   //   // library.pop();
 
-  //   console.log(library);
-
-  //   // library.splice(element, 1);
   //   // console.log(library);
+
+  //   library.splice(library.indexOf(), 1);
+  //   console.log(library);
   //   const bookGrid = document.querySelector('.book-grid');
   //   const bookCard = document.querySelector('.book-card');
   //   bookGrid.removeChild(bookCard);
   // });
+
+  return divBook;
 }
 
 // Add book function
@@ -97,10 +99,17 @@ const formButtonAdd = document.querySelector('.btn-add');
 formButtonAdd.addEventListener('click', addBook);
 
 // Delete book function
-function deleteBook() {
-  createEventListener();
-}
 
 const trashButton = document.querySelector('.book-trash');
 const bookCard = document.querySelector('.book-card');
 const bookGrid = document.querySelector('.book-grid');
+
+document.addEventListener('click', function (e) {
+  const target = e.target.closest('.book-trash');
+  console.log(target);
+
+  if (target) {
+    console.log(target.parentNode);
+    target.parentNode.style.display = 'none';
+  }
+});
