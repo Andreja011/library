@@ -60,10 +60,24 @@ function createBook(title, autor, pages, status) {
   bookStatus.appendChild(bookStatusText);
   // Delete button
   const deleteButton = document.createElement('ion-icon');
-  divBook.appendChild(deleteButton);
   deleteButton.setAttribute('name', 'trash');
   deleteButton.setAttribute('class', 'icons book-trash');
+  divBook.appendChild(deleteButton);
+  // Index element
+  const indexElement = document.createElement('div');
+  indexElement.setAttribute('class', 'index-number');
+  divBook.appendChild(indexElement);
 
+  for (let i = 0; i <= library.length; i++) {
+    deleteButton.setAttribute('data-item-index', i);
+    deleteButton.onclick = function () {
+      let itemIndex = this.getAttribute('data-item-index');
+      library.splice(itemIndex, 1);
+      console.log(library);
+      indexElement.innerHTML = '';
+      // view.click();
+    };
+  }
   // deleteButton.addEventListener('click', function () {
   //   // library.pop();
 
