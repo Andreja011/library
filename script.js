@@ -62,33 +62,16 @@ function createBook(title, autor, pages, status) {
   const deleteButton = document.createElement('ion-icon');
   deleteButton.setAttribute('name', 'trash');
   deleteButton.setAttribute('class', 'icons book-trash');
+  deleteButton.setAttribute('data', library.length);
   divBook.appendChild(deleteButton);
-  // Index element
-  const indexElement = document.createElement('div');
-  indexElement.setAttribute('class', 'index-number');
-  divBook.appendChild(indexElement);
 
-  for (let i = 0; i <= library.length; i++) {
-    deleteButton.setAttribute('data-item-index', i);
-    deleteButton.onclick = function () {
-      let itemIndex = this.getAttribute('data-item-index');
-      library.splice(itemIndex, 1);
-      console.log(library);
-      indexElement.innerHTML = '';
-      // view.click();
-    };
-  }
-  // deleteButton.addEventListener('click', function () {
-  //   // library.pop();
-
-  //   // console.log(library);
-
-  //   library.splice(library.indexOf(), 1);
-  //   console.log(library);
-  //   const bookGrid = document.querySelector('.book-grid');
-  //   const bookCard = document.querySelector('.book-card');
-  //   bookGrid.removeChild(bookCard);
-  // });
+  // Ovde je trik!!!
+  deleteButton.onclick = function () {
+    let itemIndex = this.getAttribute('data');
+    console.log(itemIndex);
+    library.splice(itemIndex, 1, undefined);
+    console.log(library);
+  };
 
   return divBook;
 }
