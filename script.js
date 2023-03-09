@@ -61,16 +61,16 @@ function createBook(title, autor, pages, status) {
   bookStatus.appendChild(bookStatusText);
   console.log(bookStatus.innerText);
   if (bookStatus.innerText === 'Read') {
-    bookStatus.style.color = 'green';
-  } else bookStatus.style.color = 'red';
+    bookStatus.style.color = '#48ff00';
+  } else bookStatus.style.color = '#ff0000';
   bookStatus.addEventListener('click', function (e) {
     console.log(e.target.innerText);
     if (e.target.innerText === 'Read') {
       e.target.innerText = 'Not read';
-      e.target.style.color = 'red';
+      e.target.style.color = '#ff0000';
     } else {
       e.target.innerText = 'Read';
-      e.target.style.color = 'green';
+      e.target.style.color = '#48ff00';
     }
   });
   // Delete button
