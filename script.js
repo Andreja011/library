@@ -54,10 +54,25 @@ function createBook(title, autor, pages, status) {
   const bookPageNumberText = document.createTextNode(pages);
   bookPageNumber.appendChild(bookPageNumberText);
   // Book status
-  const bookStatus = document.createElement('p');
+  const bookStatus = document.createElement('button');
+  bookStatus.setAttribute('class', 'btn status-btn');
   divBook.appendChild(bookStatus);
   const bookStatusText = document.createTextNode(status);
   bookStatus.appendChild(bookStatusText);
+  console.log(bookStatus.innerText);
+  if (bookStatus.innerText === 'Read') {
+    bookStatus.style.color = 'green';
+  } else bookStatus.style.color = 'red';
+  bookStatus.addEventListener('click', function (e) {
+    console.log(e.target.innerText);
+    if (e.target.innerText === 'Read') {
+      e.target.innerText = 'Not read';
+      e.target.style.color = 'red';
+    } else {
+      e.target.innerText = 'Read';
+      e.target.style.color = 'green';
+    }
+  });
   // Delete button
   const deleteButton = document.createElement('ion-icon');
   deleteButton.setAttribute('name', 'trash');
@@ -65,7 +80,6 @@ function createBook(title, autor, pages, status) {
   deleteButton.setAttribute('data', library.length);
   divBook.appendChild(deleteButton);
 
-  // Ovde je trik!!!
   deleteButton.onclick = function () {
     let itemIndex = this.getAttribute('data');
     console.log(itemIndex);
